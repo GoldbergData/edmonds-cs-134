@@ -27,6 +27,50 @@
     margin: 0.1em 0em 0.1em 0em;
 }
 
+.box-2 {
+    background-color: var(--orange_s);
+    color: var(--white_p);
+    padding: 0.1em 0.4em 0.1em 0.4em;
+    width: 75%;
+    margin: auto;
+
+}
+
+
+.box-3 {
+    background-color: var(--lightgreen_p);
+    color: var(--white_p);
+    padding: 0.1em 0.4em 0.1em 0.4em;
+    margin: 0.1em 0em 0.1em 0em;
+}
+
+img[alt=badColors], img[alt=goodColors] {
+  float: left;
+  width: 25%;
+  padding: 0 7% 0 0;
+}
+/*img[alt=goodColors] {width: 300px;}
+*/
+
+.clear {
+  clear: both;
+}
+.serif {
+  font-family: serif;
+}
+
+.cursive {
+  font-family: cursive;
+}
+
+.large {
+    font-size: 36pt;
+}
+
+.medium {
+  font-size: 22pt;
+}
+
 .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: var(--white) }
 
 .title-slide {
@@ -219,6 +263,22 @@ div.my-footer span {
 
 .table-info > table:nth-child(3) {
     margin-top: .55em;
+}
+
+
+/* 2 column layout */
+.pull-left-2 {
+  float: left;
+  width: 40%;
+  padding-left: 5%;
+  padding-right: 4%;
+}
+
+.pull-right-2 {
+  float: left;
+  width: 40%;
+  padding-right: 5%;
+  padding-left: 4%;
 }
 
 /* CSS from Andrew Heiss https://github.com/andrewheiss/datavizm20.classes.andrewheiss.com/blob/master/static/slides/css/ath-slides.css */
