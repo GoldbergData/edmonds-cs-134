@@ -1,0 +1,333 @@
+---
+title: "CS 134 Data Visualization: Week 1"
+subtitle: ""
+author: "Joshua Goldberg <br><span style='font-size: 50%;'>Edmonds College<br>Thank you to Allison Obourn and Andrew Heiss of Georgia State University for parts of these slides</span>"
+output:
+  xaringan::moon_reader:
+    css: [default, style.css, robot-fonts]
+    lib_dir: libs
+    nature:
+      titleSlideClass: ["left", "middle", "inverse"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: true
+      slideNumberFormat: "%current%"
+      ratio: "16:9"
+      navigation:
+        scroll: false
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
+library(knitr)
+library(xaringan)
+library(tidyverse)
+library(knitr)
+library(dplyr)
+
+#install.packages("rtools")
+# install.packages("renderthis")
+#  library("renderthis")
+# renderthis::to_pdf("index.html")
+# getwd()
+```
+
+class: text-slide, title-inv-7, center
+count: FALSE
+
+# Welcome to CS 134
+
+--
+
+- .left[**Instructor:** Joshua Goldberg]
+  - .left[**Education:** Master's in Data Science from the University of Chicago]
+  - .left[**Industry:** Currently working as a Data Scientist at Amazon]
+
+--
+- .left[**Contact Information**]
+  - .left[**Email:** josh.goldberg@edmonds.edu]
+
+---
+class: text-slide, main-slide, center, middle, hide-count
+# What we will cover
+
+---
+class: text-slide, title-inv-7
+count: FALSE
+
+# Topics
+--
+
+.center[.box-1.large[Basics of graphic design]]
+--
+.center[.box-1.large[Mapping data to graphics]]
+--
+.center[.box-1.large[How **not** to lie with statistics]]
+--
+.center[.box-1.large[Core types of graphics]]
+--
+.center[.box-1.large[Special applications]]
+  
+---
+class: text-slide, title-inv-7
+count: FALSE
+
+# Tools
+
+--
+<div class="pull-left-2">
+<img src="img\complexity-chart@4x.png" alt="tools compared" width="100%"/>
+</div>
+
+<!-- I give up. This should be possible with markdown or at least with display: flex. -->
+
+<ul class="pull-right-2" >
+  <li><strong>Last Quarter:</strong>
+    <ul>
+      <li>Excel</li>
+    </ul>
+  </li>
+  <li><strong>This Quarter:</strong>
+    <ul>
+      <li>R / tidyverse</li>
+      <li>ggplot2</li>
+      <li>Tableau</li>
+    </ul>
+  </li>
+</ul>
+---
+
+class: text-slide, title-inv-7, center
+count: FALSE
+
+# The Logistics
+
+--
+
+- .left[**Class schedule and format**]
+  - .left[Tuesdays 6:00 - 7:50 pm]
+  - .left[Thursdays 7:15 - 8:15 pm]
+  - .left[All classes will be held on **Zoom**]
+
+--
+- .left[All class information will be posted on the [class website](https://allisonobourn.com/edmonds/134)]
+
+---
+
+class: text-slide, title-inv-7
+count: FALSE
+
+# Required Materials
+
+--
+
+.center[.box-1.medium[Everything you need for this class is **free**]]
+
+--
+
+- .left[**Reading material**]
+  - .left[[Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) by Claus O. Wilke]
+  - .left[[R for Data Science](https://r4ds.hadley.nz) by Hadley Wickham and Garrett Grolemund]
+  
+--
+
+- .left[**Technology**]
+  - .left[[The R Programming Language](https://cran.r-project.org/)]
+  - .left[[RStudio / Posit](https://posit.co/) - available to download and install as well as [use in your browser](https://posit.cloud/)]
+  - .left[The [esquisse](https://github.com/dreamRs/esquisse) library for R]
+  - .left[[Tableau](https://www.tableau.com/)]
+
+---
+
+class: text-slide, title-inv-7
+count: FALSE
+
+# Assigned Work
+
+--
+
+- .left[**Required work**]
+  - .left[No exams!]
+  - .left[One assignment a week for the first 6 weeks]
+  - .left[Larger final project]
+        - Presentation during our final exam slot
+--
+
+- .left[**Grading breakdown**]
+  - .left[**60%** Weekly assignments]
+  - .left[**40%** Final project]
+
+---
+
+class: text-slide, main-slide, center, middle, hide-count
+# Graphic Design
+
+---
+
+class: text-slide, title-inv-7
+# Principles of design
+
+
+<div class="box-2">
+.center[.large[There are thousands of books and centuries of debate and theory about what makes good design.]] 
+</div>
+
+<div style="height: 50px"></div>
+
+.center.large[No one agrees.]
+
+<div style="height: 50px"></div>
+
+.center[.medium[This isn't a graphic design class - we'll just discuss some general pointers.]]
+---
+
+class: text-slide, center
+
+# Let's start with the CRAP
+
+--
+
+.center[.box-2.large[Contrast]]
+.right[.box-1.medium[Alignment]]
+.center[.box-1.medium[Repetition] .box-1.medium[Repetition] .box-1.medium[Repetition]]
+<div style="margin-top:100px"></div>
+.center[.box-1.large[Proximity]]
+
+.left.large[Use these as a checklist.]
+
+---
+class: text-slide, title-inv-7
+
+# Contrast
+
+If two items are not exactly  
+the same, make them different.
+
+.box-2.right.large[REALLY DIFFERENT]
+
+## Create contrast with:
+
+- .box-3[Colors]
+- .serif[Font] .cursive[family]
+- Font **weight**
+- .large[Size]
+<!-- this looks bad - not sure how to fix though... -->
+
+---
+
+class: text-slide, center
+
+# Color Theory
+
+```
+knitr::include_url("https://color.adobe.com/create/color-wheel")
+```
+<!-- I think we need PhantomJS and webshot?? 
+https://bookdown.org/yihui/rmarkdown-cookbook/include-url.html
+
+this should embed a working version of this site
+
+it would be nice to have it basically be an iframe - worst comes to worst could just use an image
+-->
+---
+
+class: text-slide
+# Usability
+
+![badColors](img\ga1-1.png "Bad color scheme")  
+
+![goodColors](img\ga2-1.png "One good color scheme")
+
+![goodColors](img\ga3-1.png "Another good color scheme")
+  
+.center.clear[Values **close** to each other should use **similar** colors, and values far from each other use different colors]
+
+1. Colors should indicate which values are **greater** or **lesser** than the other values.
+
+2. The **difference between colors** should represent the **difference between values**.
+
+---
+
+class: text-slide
+
+# Accessibility 
+
+.center[8% of men and 0.05% of women have some form of color blindness]
+
+.center[![colorblind colors](img\colorblind.png "How people who are colorblind perceive colors")]
+
+.center[We need to make sure we choose colors everyone can distinguish.]
+
+---
+
+class: text-slide, table-info
+
+# Making it all fit together
+
+- .left[Keep something **consistent** so your visualization has **cohesion**. Choose at least one of:]
+  - .left[colors]
+  - .left[fonts]
+        - families
+        - weights
+        - sizes
+  - .left[graphical elements]
+  - .left[alignments]
+- .left[Every item should have a **visual connection** with something else on the page.]
+
+---
+
+
+class: text-slide, table-info
+# Alignment
+
+.center[.box-1.medium[Share lines and repeat alignments where possible.]]
+
+<div style="height: 50px"></div>
+.pull-left-2[![bad alignment](img\alignment-bad-annotated.png "Poorly aligned graphics")]
+
+.pull-right-2[![good alignment](img\alignment-good-annotated.png "Properly aligned graphics")]
+
+<!-- maybe these should be cropped to be the same height -->
+
+---
+
+class: text-slide
+# Proximity
+
+Group similar things together to have **logical groupings**.
+
+<div style="height: 50px"></div>
+.pull-left-2[![bad proximity](img\proximity-bad.png "Poorly positioned graphics")]
+
+.pull-right-2[![good proximity](img\proximity-good.png "Properly positioned graphics")]
+
+
+---
+
+class: text-slide
+# Image Quality
+
+Last, but not least: **image resolution** matters
+
+No matter how good your visualization is, it won't look good if it pixelated or blurry.
+
+<div style="height: 30px"></div>
+.pull-left-2[![pixelated](img\example-bitmap.png "Poor resolution image")]
+
+.pull-right-2[
+- Some image types **compress data** 
+    - bitmap
+
+- Others **compress colors**
+    - png
+    - gif
+
+- Better option: **vector graphics** 
+    - svg
+    - pdf
+    - eps
+]
+

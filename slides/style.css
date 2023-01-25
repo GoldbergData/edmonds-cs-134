@@ -1,0 +1,315 @@
+/* U Chicago colors */
+/* red: #800000 */
+/* grey: #4d4d4f */
+/* gold: #ffbd25 */
+
+:root {
+  /*
+  _p is primary
+  _s is secondary
+  */
+  --blue_p: #004d71;
+  --blue45_p: #89abbc;
+  --white_p: #FFFFFF;
+  --lightgreen_p: #95d600;
+  --coolgrey_p: #55565A;
+  --coolgrey75_p: #7d7d80;
+  --darkblue_s: #263746;
+  --teal_s: #007481;
+  --orange_s: #dd5f13;
+}
+
+
+.box-1 {
+    background-color: var(--darkblue_s);
+    color: var(--white_p);
+    padding: 0.1em 0.4em 0.1em 0.4em;
+    margin: 0.1em 0em 0.1em 0em;
+}
+
+.box-2 {
+    background-color: var(--orange_s);
+    color: var(--white_p);
+    padding: 0.1em 0.4em 0.1em 0.4em;
+    width: 75%;
+    margin: auto;
+
+}
+
+
+.box-3 {
+    background-color: var(--lightgreen_p);
+    color: var(--white_p);
+    padding: 0.1em 0.4em 0.1em 0.4em;
+    margin: 0.1em 0em 0.1em 0em;
+}
+
+img[alt=badColors], img[alt=goodColors] {
+  float: left;
+  width: 25%;
+  padding: 0 7% 0 0;
+}
+/*img[alt=goodColors] {width: 300px;}
+*/
+
+.clear {
+  clear: both;
+}
+.serif {
+  font-family: serif;
+}
+
+.cursive {
+  font-family: cursive;
+}
+
+.large {
+    font-size: 36pt;
+}
+
+.medium {
+  font-size: 22pt;
+}
+
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: var(--white) }
+
+.title-slide {
+    background-image: url("https://employees.edmonds.edu/prtools/brand-guidelines/images/ec-college-logo.png");
+    background-color: var(--white_p);
+    background-position: 5% 15%;
+    background-size: 50%;
+    padding-left: 100px;  /* delete this for 4:3 aspect ratio */
+}
+
+.title-slide h1 {
+    color: var(--blue_p); /* U Chicago red */
+    padding-top: 250px;
+    font-weight: normal;
+    font-size: 45px;
+    line-height: 0.05;
+    text-align: left;
+    text-shadow: none;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+}
+
+/* H2 fonts */
+.title-slide h2 {
+    color: var(--coolgrey_p); /* U Chicago grey accent 1 */
+    font-size: 35px;
+    text-align: left;
+    text-shadow: none;
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 10px;
+}
+
+/* H3 fonts */
+.title-slide h3 {
+    font-size: 28px;
+    font-weight: normal;
+    color: var(--coolgrey75_p); /* U Chicago grey accent 1 */
+    text-align: left;
+    text-shadow: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Remove slide count */
+.hide-count .remark-slide-number {
+    display: none;
+}
+
+
+/* Other adjustments */
+
+.text-slide {
+    /* background-color: #800000; */
+    /* color: #F3F3F1; */
+}
+
+.text-slide h1 {
+    /* color: #F3F3F1; */
+    color: var(--blue_p);
+}
+
+.text-slide p {
+    /* color: #F3F3F1; U Chicago grey accent 1  */
+    color: var(--coolgrey_p);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.text-slide li {
+    /* color: #F3F3F1; */
+    color: var(--coolgrey_p);
+    padding: .05em;
+    line-height: 1.5;
+}
+
+.text-slide li:nth-last-child() {
+    padding-bottom: 0;
+}
+
+.text-slide .remark-slide-number {
+    /* color: #F3F3F1; */
+    color: var(--coolgrey_p);
+}
+
+.main-slide {
+    background-color: var(--blue_p);
+    color: var(--white_p);
+}
+
+.main-slide h1 {
+    color: var(--white_p);
+}
+
+.main-slide p {
+    color: var(--white_p);
+}
+
+.remark-slide table {
+    background-color: var(--white_p);
+    padding: .1em;
+    margin: auto;
+    border-top: none;
+    border-bottom: none;
+}
+
+th {
+    background-color: var(--white_p);
+    font-size: .60em;
+    padding: 3px;
+    color: var(--blue_p)
+}
+
+td {
+    background-color: var(--white_p);
+    font-size: .69em;
+    padding: 3px;
+    color: var(--coolgrey_p);
+}
+
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
+    background: none;
+}
+
+.remark-slide tr:nth-child(even) {
+    background: none;
+}
+
+#slide-cost > h3 {
+    /* color: #F3F3F1; */
+    color: var(--coolgrey_p);
+}
+
+.last-slide h1 {
+    color: var(--coolgrey_p);
+}
+
+.last-slide {
+    /* background-color: #F3F3F1; */
+    text-align: left;
+}
+
+.last-slide img {
+    height: 75%;
+    width: 75%;
+}
+
+.table-info > table:nth-child(3) {
+    margin-top: .55em;
+}
+
+.remark-slide-content {
+  font-size: 25px;
+  /* Base font size */
+  padding: 1em 1em 1em 1em;
+}
+
+div.my-header {
+    background-color: #F77A00;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffb76b), color-stop(0%,#ffa73d), color-stop(0%,#ffffff), color-stop(10%,#ffffff), color-stop(25%,#F77A00), color-stop(100%,#F77A00));
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    width: 100%;
+    text-align: left;
+}
+
+div.my-footer {
+    background-color: #272822;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 20px;
+    width: 100%;
+}
+
+div.my-footer span {
+    font-size: 10pt;
+    color: #F7F8FA;
+    position: absolute;
+    left: 15px;
+    bottom: 2px;
+}
+
+.mysql-image {
+  background-color: white;
+}
+
+.table-info > table:nth-child(3) {
+    margin-top: .55em;
+}
+
+
+/* 2 column layout */
+.pull-left-2 {
+  float: left;
+  width: 40%;
+  padding-left: 5%;
+  padding-right: 4%;
+}
+
+.pull-right-2 {
+  float: left;
+  width: 40%;
+  padding-right: 5%;
+  padding-left: 4%;
+}
+
+/* CSS from Andrew Heiss https://github.com/andrewheiss/datavizm20.classes.andrewheiss.com/blob/master/static/slides/css/ath-slides.css */
+
+/*
+Three column layout
+*/
+.pull-left-3 {
+  float: left;
+  width: 30%;
+  padding: 0 2.5% 0 0;
+}
+
+.pull-middle-3 {
+  float: left;
+  width: 30%;
+  padding: 0 2.5%;
+}
+
+.pull-right-3 {
+  float: right;
+  width: 30%;
+  padding: 0 0 0 2.5%;
+}
+
+/* CSS from Alison https://github.com/rstudio-education/arm-workshop-rsc2019/blob/master/static/slides/css/ */
+
+div.my-footer span {
+    font-size: 10pt;
+    color: #F7F8FA;
+    position: absolute;
+    left: 15px;
+    bottom: 2px;
+}

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>CS 134 Data Visualization: Week 1</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Joshua Goldberg  Edmonds College Thank you to Allison Obourn and Andrew Heiss of Georgia State University for parts of these slides" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/robot-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, inverse, title-slide
+
+.title[
+# CS 134 Data Visualization: Week 1
+]
+.author[
+### Joshua Goldberg <br><span style="font-size: 50%;">Edmonds College<br>Thank you to Allison Obourn and Andrew Heiss of Georgia State University for parts of these slides</span>
+]
+
+---
+
+
+
+
+class: text-slide, title-inv-7, center
+count: FALSE
+
+# Welcome to CS 134
+
+--
+
+- .left[**Instructor:** Joshua Goldberg]
+  - .left[**Education:** Master's in Data Science from the University of Chicago]
+  - .left[**Industry:** Currently working as a Data Scientist at Amazon]
+
+--
+- .left[**Contact Information**]
+  - .left[**Email:** josh.goldberg@edmonds.edu]
+
+---
+class: text-slide, main-slide, center, middle, hide-count
+# What we will cover
+
+---
+class: text-slide, title-inv-7
+count: FALSE
+
+# Topics
+--
+
+.center[.box-1.large[Basics of graphic design]]
+--
+.center[.box-1.large[Mapping data to graphics]]
+--
+.center[.box-1.large[How **not** to lie with statistics]]
+--
+.center[.box-1.large[Core types of graphics]]
+--
+.center[.box-1.large[Special applications]]
+  
+---
+class: text-slide, title-inv-7
+count: FALSE
+
+# Tools
+
+--
+&lt;div class="pull-left-2"&gt;
+&lt;img src="img\complexity-chart@4x.png" alt="tools compared" width="100%"/&gt;
+&lt;/div&gt;
+
+&lt;!-- I give up. This should be possible with markdown or at least with display: flex. --&gt;
+
+&lt;ul class="pull-right-2" &gt;
+  &lt;li&gt;&lt;strong&gt;Last Quarter:&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Excel&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;This Quarter:&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;R / tidyverse&lt;/li&gt;
+      &lt;li&gt;ggplot2&lt;/li&gt;
+      &lt;li&gt;Tableau&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+---
+
+class: text-slide, title-inv-7, center
+count: FALSE
+
+# The Logistics
+
+--
+
+- .left[**Class schedule and format**]
+  - .left[Tuesdays 6:00 - 7:50 pm]
+  - .left[Thursdays 7:15 - 8:15 pm]
+  - .left[All classes will be held on **Zoom**]
+
+--
+- .left[All class information will be posted on the [class website](https://allisonobourn.com/edmonds/134)]
+
+---
+
+class: text-slide, title-inv-7
+count: FALSE
+
+# Required Materials
+
+--
+
+.center[.box-1.medium[Everything you need for this class is **free**]]
+
+--
+
+- .left[**Reading material**]
+  - .left[[Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) by Claus O. Wilke]
+  - .left[[R for Data Science](https://r4ds.hadley.nz) by Hadley Wickham and Garrett Grolemund]
+  
+--
+
+- .left[**Technology**]
+  - .left[[The R Programming Language](https://cran.r-project.org/)]
+  - .left[[RStudio / Posit](https://posit.co/) - available to download and install as well as [use in your browser](https://posit.cloud/)]
+  - .left[The [esquisse](https://github.com/dreamRs/esquisse) library for R]
+  - .left[[Tableau](https://www.tableau.com/)]
+
+---
+
+class: text-slide, title-inv-7
+count: FALSE
+
+# Assigned Work
+
+--
+
+- .left[**Required work**]
+  - .left[No exams!]
+  - .left[One assignment a week for the first 6 weeks]
+  - .left[Larger final project]
+        - Presentation during our final exam slot
+--
+
+- .left[**Grading breakdown**]
+  - .left[**60%** Weekly assignments]
+  - .left[**40%** Final project]
+
+---
+
+class: text-slide, main-slide, center, middle, hide-count
+# Graphic Design
+
+---
+
+class: text-slide, title-inv-7
+# Principles of design
+
+
+&lt;div class="box-2"&gt;
+.center[.large[There are thousands of books and centuries of debate and theory about what makes good design.]] 
+&lt;/div&gt;
+
+&lt;div style="height: 50px"&gt;&lt;/div&gt;
+
+.center.large[No one agrees.]
+
+&lt;div style="height: 50px"&gt;&lt;/div&gt;
+
+.center[.medium[This isn't a graphic design class - we'll just discuss some general pointers.]]
+---
+
+class: text-slide, center
+
+# Let's start with the CRAP
+
+--
+
+.center[.box-2.large[Contrast]]
+.right[.box-1.medium[Alignment]]
+.center[.box-1.medium[Repetition] .box-1.medium[Repetition] .box-1.medium[Repetition]]
+&lt;div style="margin-top:100px"&gt;&lt;/div&gt;
+.center[.box-1.large[Proximity]]
+
+.left.large[Use these as a checklist.]
+
+---
+class: text-slide, title-inv-7
+
+# Contrast
+
+If two items are not exactly  
+the same, make them different.
+
+.box-2.right.large[REALLY DIFFERENT]
+
+## Create contrast with:
+
+- .box-3[Colors]
+- .serif[Font] .cursive[family]
+- Font **weight**
+- .large[Size]
+&lt;!-- this looks bad - not sure how to fix though... --&gt;
+
+---
+
+class: text-slide, center
+
+# Color Theory
+
+```
+knitr::include_url("https://color.adobe.com/create/color-wheel")
+```
+&lt;!-- I think we need PhantomJS and webshot?? 
+https://bookdown.org/yihui/rmarkdown-cookbook/include-url.html
+
+this should embed a working version of this site
+
+it would be nice to have it basically be an iframe - worst comes to worst could just use an image
+--&gt;
+---
+
+class: text-slide
+# Usability
+
+![badColors](img\ga1-1.png "Bad color scheme")  
+
+![goodColors](img\ga2-1.png "One good color scheme")
+
+![goodColors](img\ga3-1.png "Another good color scheme")
+  
+.center.clear[Values **close** to each other should use **similar** colors, and values far from each other use different colors]
+
+1. Colors should indicate which values are **greater** or **lesser** than the other values.
+
+2. The **difference between colors** should represent the **difference between values**.
+
+---
+
+class: text-slide
+
+# Accessibility 
+
+.center[8% of men and 0.05% of women have some form of color blindness]
+
+.center[![colorblind colors](img\colorblind.png "How people who are colorblind perceive colors")]
+
+.center[We need to make sure we choose colors everyone can distinguish.]
+
+---
+
+class: text-slide, table-info
+
+# Making it all fit together
+
+- .left[Keep something **consistent** so your visualization has **cohesion**. Choose at least one of:]
+  - .left[colors]
+  - .left[fonts]
+        - families
+        - weights
+        - sizes
+  - .left[graphical elements]
+  - .left[alignments]
+- .left[Every item should have a **visual connection** with something else on the page.]
+
+---
+
+
+class: text-slide, table-info
+# Alignment
+
+.center[.box-1.medium[Share lines and repeat alignments where possible.]]
+
+&lt;div style="height: 50px"&gt;&lt;/div&gt;
+.pull-left-2[![bad alignment](img\alignment-bad-annotated.png "Poorly aligned graphics")]
+
+.pull-right-2[![good alignment](img\alignment-good-annotated.png "Properly aligned graphics")]
+
+&lt;!-- maybe these should be cropped to be the same height --&gt;
+
+---
+
+class: text-slide
+# Proximity
+
+Group similar things together to have **logical groupings**.
+
+&lt;div style="height: 50px"&gt;&lt;/div&gt;
+.pull-left-2[![bad proximity](img\proximity-bad.png "Poorly positioned graphics")]
+
+.pull-right-2[![good proximity](img\proximity-good.png "Properly positioned graphics")]
+
+
+---
+
+class: text-slide
+# Image Quality
+
+Last, but not least: **image resolution** matters
+
+No matter how good your visualization is, it won't look good if it pixelated or blurry.
+
+&lt;div style="height: 30px"&gt;&lt;/div&gt;
+.pull-left-2[![pixelated](img\example-bitmap.png "Poor resolution image")]
+
+.pull-right-2[
+- Some image types **compress data** 
+    - bitmap
+
+- Others **compress colors**
+    - png
+    - gif
+
+- Better option: **vector graphics** 
+    - svg
+    - pdf
+    - eps
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true,
+"slideNumberFormat": "%current%",
+"ratio": "16:9",
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
